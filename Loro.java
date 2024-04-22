@@ -1,0 +1,44 @@
+import java.util.Date;
+
+public class Loro extends Ave{
+    private String tipo;
+    private boolean habla;
+
+    public Loro(String codigo, int edad, int patas, Date fecha_nac, boolean pico, boolean vuela, String tipo, boolean habla) {
+        super(codigo, edad, patas, fecha_nac, pico, vuela);
+        this.tipo = tipo;
+        this.habla = habla;
+    }
+
+    @Override
+    public void aniversario() {
+        setEdad(1);
+        System.out.println("Este loro tiene "+getEdad()+" años, que equivalen a "+getEdad()*10+" años humanos");
+    }
+
+    @Override
+    public void habla() {
+        System.out.println("Siuuuuu");
+    }
+
+    @Override
+    public void volar() {
+        System.out.println("El loro se ha desplazado 3 metros");
+    }
+    public void saluda(){
+        System.out.println("HOLA, HOLA");
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public boolean isHabla() {
+        return habla;
+    }
+
+    public String toString(){
+        String habla = isHabla() ? "Si" : "No";
+        return "Tipo de loro: "+getTipo()+"\n ¿Habla?: "+habla;
+    }
+}
