@@ -16,7 +16,6 @@ public abstract class Animal {
         this.patas = patas;
         this.edad = edad;
     }
-    public Animal(){}
     public abstract void aniversario();
     public abstract void habla();
     public String toString(){

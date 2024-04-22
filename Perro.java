@@ -13,7 +13,7 @@ public class Perro extends Animal{
     @Override
     public void aniversario() {
         setEdad(1);
-        System.out.println("Este perro tiene "+getEdad()+" que equivale a "+getEdad()*7+" años humanos");
+        System.out.println("Este perro tiene "+getEdad()+" años, que equivale a "+getEdad()*7+" años humanos");
     }
     @Override
     public void habla() {
@@ -40,7 +40,10 @@ public class Perro extends Animal{
     }
     public void vacunar(){
         setNum_vacunas(1);
-        desparasitado = true;
+        setDesparasitado(true);
     }
 
+    public void setDesparasitado(boolean desparasitado) {
+        this.desparasitado = desparasitado;
+    }
 }
