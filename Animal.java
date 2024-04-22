@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public abstract class Animal {
+public abstract class Animal implements Comparable<Animal>{
     private String codigo;
     private int patas;
     private int edad;
@@ -39,6 +39,10 @@ public abstract class Animal {
 
     public void setEdad(int edad) {
         this.edad += edad;
+    }
+
+    public int compareTo(Animal animal){
+        return this.codigo.compareTo(animal.getCodigo());
     }
 
 }
