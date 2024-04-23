@@ -40,7 +40,7 @@ public class Loro extends Ave implements Mascota{
 
     public String toString(){
         String habla = isHabla() ? "Si" : "No";
-        return "Tipo de loro: "+getTipo()+"\n ¿Habla?: "+habla;
+        return super.toString()+"\n Tipo de loro: "+getTipo()+"\n ¿Habla?: "+habla;
     }
 
     @Override

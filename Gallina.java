@@ -30,6 +30,6 @@ public class Gallina extends Ave{
 
     public String toString(){
         String pon = isPonedora() ? "Si" : "No";
-        return "¿Gallina ponedora?: "+pon;
+        return super.toString()+"\n ¿Gallina ponedora?: "+pon;
     }
 }

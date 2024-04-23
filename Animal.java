@@ -22,7 +22,7 @@ public abstract class Animal implements Comparable<Animal>{
     public abstract void aniversario();
     public abstract void habla();
     public String toString(){
-        return "Animal genérico";
+        return "Codigo: "+codigo+", Patas: "+patas+", Edad: "+edad+", Fecha de nacimiento: "+fecha_nacimiento;
     }
     public String getCodigo() {
         return codigo;
