@@ -5,7 +5,10 @@ public abstract class Animal implements Comparable<Animal>{
     private int patas;
     private int edad;
     private Date fecha_nacimiento = new Date();
-    public Animal(String codigo, int patas, int edad, Date fecha_nacimiento){
+    public Animal(String codigo, int patas, int edad, Date fecha_nacimiento) throws EdadErronea{
+        if(edad<0){
+            throw new EdadErronea("La edad no puede ser negativa");
+        }
         this.codigo = codigo;
         this.patas = patas;
         this.edad = edad;

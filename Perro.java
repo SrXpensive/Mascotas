@@ -1,10 +1,11 @@
 import java.util.Date;
 
-public class Perro extends Animal{
+public class Perro extends Animal implements Mascota{
     private String raza;
     private boolean desparasitado;
     private int num_vacunas;
-    public Perro(String codigo, int patas, int edad, Date fecha_nac, String raza, boolean desparasitado, int num_vacunas){
+    private String nombre;
+    public Perro(String codigo, int patas, int edad, Date fecha_nac, String raza, boolean desparasitado, int num_vacunas) throws EdadErronea{
         super(codigo,patas,edad,fecha_nac);
         this.raza = raza;
         this.desparasitado = desparasitado;
@@ -45,5 +46,20 @@ public class Perro extends Animal{
 
     public void setDesparasitado(boolean desparasitado) {
         this.desparasitado = desparasitado;
+    }
+
+    @Override
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String jugar(String nombre) {
+        return "Dame la pata\n Coje el palo";
     }
 }

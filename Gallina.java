@@ -3,7 +3,7 @@ import java.util.Date;
 public class Gallina extends Ave{
     private boolean ponedora;
 
-    public Gallina(String codigo, int edad, int patas, Date fecha_nac, boolean pico, boolean vuela, boolean ponedora) {
+    public Gallina(String codigo, int edad, int patas, Date fecha_nac, boolean pico, boolean vuela, boolean ponedora) throws EdadErronea{
         super(codigo, edad, patas, fecha_nac, pico, vuela);
         this.ponedora = ponedora;
     }

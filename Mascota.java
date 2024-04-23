@@ -1,5 +1,5 @@
 public interface Mascota {
-    void getNombre();
+    String getNombre();
     void setNombre(String nombre);
     String jugar(String nombre);
 }
