@@ -14,11 +14,15 @@ public abstract class Animal implements Comparable<Animal>{
         this.edad = edad;
         this.fecha_nacimiento = fecha_nacimiento;
     }
-    public Animal(String codigo, int patas, int edad){
+    public Animal(String codigo, int patas, int edad)throws EdadErronea{
+        if(edad<0){
+            throw new EdadErronea("La edad no puede ser negativa");
+        }
         this.codigo = codigo;
         this.patas = patas;
         this.edad = edad;
     }
+    public Animal(){}
     public abstract void aniversario();
     public abstract void habla();
     public String toString(){

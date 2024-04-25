@@ -4,8 +4,8 @@ public class Gato extends Animal implements Mascota{
     private String raza;
     private boolean pelo_largo;
     private String nombre;
-    public Gato(String codigo, int edad, int patas, Date fecha_nac, String raza, boolean pelo_largo) throws EdadErronea{
-        super(codigo,edad,patas,fecha_nac);
+    public Gato(String codigo, int patas, int edad, Date fecha_nac, String raza, boolean pelo_largo) throws EdadErronea{
+        super(codigo,patas,edad,fecha_nac);
         this.raza = raza;
         this.pelo_largo = pelo_largo;
     }

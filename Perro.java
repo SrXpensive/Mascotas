@@ -11,6 +11,7 @@ public class Perro extends Animal implements Mascota{
         this.desparasitado = desparasitado;
         this.num_vacunas = num_vacunas;
     }
+    public Perro(){super();}
     @Override
     public void aniversario() {
         setEdad(1);
@@ -22,7 +23,7 @@ public class Perro extends Animal implements Mascota{
     }
     public String toString(){
         String desp = isDesparasitado() ? "Si" : "No";
-        return super.toString()+"\n Perro\n Raza :" +getRaza()+" \n Desparasitado: "+desp+"\n Num. vacunas: "+getNum_vacunas();
+        return super.toString()+"\n Perro\n Raza: "+getRaza()+" \n Desparasitado: "+desp+"\n Num. vacunas: "+getNum_vacunas();
     }
 
     public String getRaza() {

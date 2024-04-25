@@ -5,8 +5,8 @@ public class Loro extends Ave implements Mascota{
     private boolean habla;
     private String nombre;
 
-    public Loro(String codigo, int edad, int patas, Date fecha_nac, boolean pico, boolean vuela, String tipo, boolean habla) throws EdadErronea{
-        super(codigo, edad, patas, fecha_nac, pico, vuela);
+    public Loro(String codigo, int patas, int edad, Date fecha_nac, boolean pico, boolean vuela, String tipo, boolean habla) throws EdadErronea{
+        super(codigo, patas, edad, fecha_nac, pico, vuela);
         this.tipo = tipo;
         this.habla = habla;
     }
