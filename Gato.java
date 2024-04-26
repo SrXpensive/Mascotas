@@ -3,7 +3,7 @@ import java.util.Date;
 public class Gato extends Animal implements Mascota{
     private String raza;
     private boolean pelo_largo;
-    private String nombre;
+    private String nombre="";
     public Gato(String codigo, int patas, int edad, Date fecha_nac, String raza, boolean pelo_largo) throws EdadErronea{
         super(codigo,patas,edad,fecha_nac);
         this.raza = raza;
@@ -30,7 +30,7 @@ public class Gato extends Animal implements Mascota{
     public String toString(){
         String pelo = isPelo_largo() ? "Si" : "No";
         String n = "";
-        if(!getNombre().isEmpty()){
+        if(!getNombre().isBlank()){
             n += "\n Nombre: "+getNombre();
         }
         return super.toString()+"\n Gato\n Raza :" +getRaza()+" \n Pelo largo: "+pelo+"\n Edad: "+getEdad()+" "+n;

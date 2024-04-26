@@ -3,7 +3,7 @@ import java.util.Date;
 public class Loro extends Ave implements Mascota{
     private String tipo;
     private boolean habla;
-    private String nombre;
+    private String nombre="";
 
     public Loro(String codigo, int patas, int edad, Date fecha_nac, boolean pico, boolean vuela, String tipo, boolean habla) throws EdadErronea{
         super(codigo, patas, edad, fecha_nac, pico, vuela);

@@ -4,7 +4,7 @@ public class Perro extends Animal implements Mascota{
     private String raza;
     private boolean desparasitado;
     private int num_vacunas;
-    private String nombre;
+    private String nombre="";
     public Perro(String codigo, int patas, int edad, Date fecha_nac, String raza, boolean desparasitado, int num_vacunas) throws EdadErronea{
         super(codigo,patas,edad,fecha_nac);
         this.raza = raza;
@@ -24,7 +24,7 @@ public class Perro extends Animal implements Mascota{
     public String toString(){
         String desp = isDesparasitado() ? "Si" : "No";
         String n = "";
-        if(!getNombre().isEmpty()){
+        if(!getNombre().isBlank()){
             n+="\n Nombre: "+getNombre();
         }
         return super.toString()+"\n Perro\n Raza: "+getRaza()+" \n Desparasitado: "+desp+"\n Num. vacunas: "+getNum_vacunas()+" "+n;
