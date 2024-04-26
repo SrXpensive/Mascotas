@@ -7,11 +7,14 @@ public class ListaAnimales {
     public static void main(String[] args) {
         int opcion;
         do{
+            System.out.println("--------------------");
             System.out.println("1 - Mostrar lista de animales");
             System.out.println("2 - Ordenar lista");
             System.out.println("3 - Mostrar todos los datos de un animal");
             System.out.println("4 - Insertar nuevo animal");
             System.out.println("5 - Eliminar animal");
+            System.out.println("6 - Modificar animal");
+            System.out.println("--------------------");
             opcion = Leer.leerEntero("Introduce una opción: ");
             switch(opcion){
                 case 1:
@@ -23,8 +26,10 @@ public class ListaAnimales {
                         System.out.println("La lista está vacía");
                     }
                     else{
+                        System.out.println("--------------------");
                         System.out.println("1 - Ordenar por código");
                         System.out.println("2 - Ordenar por tipo");
+                        System.out.println("--------------------");
                         modo = Leer.leerEntero("¿Cómo quieres ordenar los animales?");
                         switch(modo){
                             case 1:
@@ -40,11 +45,91 @@ public class ListaAnimales {
                     String num;
                     listaAnimales();
                     num = Leer.leerTexto("¿De qué animal quieres ver los datos? (introduce su código): ");
-                    buscarAnimal(num);
+                    System.out.println(buscarAnimal(num));
                     break;
                 case 4:
                     insertarAnimal();
                     break;
+                case 5:
+                    if(animales.isEmpty()){
+                        System.out.println("La lista está vacía");
+                    }else{
+                        listaAnimales();
+                        String n = Leer.leerTexto("¿Qué animal quieres eliminar? (introduce su código): ");
+                        System.out.println("El siguiente animal será eliminado: ");
+                        System.out.println(buscarAnimal(n));
+                        String op = Leer.leerTexto("¿Estás seguro de querer eliminarlo? (s/n)");
+                            if(op.equals("s")){
+                            animales.remove(buscarAnimal(n));
+                            System.out.println("Animal borrado");
+                        }else{
+                            System.out.println("Proceso de eliminación abortado");
+                        }
+                    }
+                    break;
+                case 6:
+                    int mod;
+                    if(animales.isEmpty()){
+                        System.out.println("La lista está vacía");
+                    }else{
+                        listaAnimales();
+                        String m = Leer.leerTexto("¿Qué animal quieres modificar? (introduce su código): ");
+                            if(buscarAnimal(m) instanceof Perro){
+                            System.out.println("--------------------");
+                            System.out.println("1 - Vacunar");
+                            System.out.println("2 - Aniversario");
+                            System.out.println("3 - Poner nombre");
+                            mod = Leer.leerEntero("Introduce una opción: ");
+                            try {
+                                switch(mod) {
+                                    case 1:
+                                        ((Perro) buscarAnimal(m)).vacunar();
+                                        break;
+                                    case 2:
+                                        buscarAnimal(m).aniversario();
+                                        break;
+                                    case 3:
+                                        String nom = Leer.leerTexto("Introduce el nombre que quieres poner al perro: ");
+                                        ((Perro) buscarAnimal(m)).setNombre(nom);
+                                }
+                                }catch (NullPointerException e) {
+                                        System.out.println(e.getMessage());
+                                }
+                            }else if(buscarAnimal(m) instanceof Gato){
+                                System.out.println("--------------------");
+                                System.out.println("1 - Cortar Pelo");
+                                System.out.println("2 - Aniversario");
+                                System.out.println("3 - Poner nombre");
+                                mod = Leer.leerEntero("Introduce una opcion: ");
+                                switch(mod){
+                                    case 1:
+                                        ((Gato)buscarAnimal(m)).cortarPelo();
+                                        break;
+                                    case 2:
+                                        buscarAnimal(m).aniversario();
+                                        break;
+                                    case 3:
+                                        String nom = Leer.leerTexto("Introduce el nombre que quieres poner al gato: ");
+                                        ((Gato) buscarAnimal(m)).setNombre(nom);
+                                        break;
+                                }
+                            }else if(buscarAnimal(m) instanceof Loro) {
+                                System.out.println("--------------------");
+                                System.out.println("1 - Aniversario");
+                                System.out.println("2 - Poner nombre");
+                                mod = Leer.leerEntero("Introduce una opcion: ");
+                                switch (mod) {
+                                    case 1:
+                                        buscarAnimal(m).aniversario();
+                                        break;
+                                    case 2:
+                                        String nom = Leer.leerTexto("Introduce el nombre del loro");
+                                        ((Loro) buscarAnimal(m)).setNombre(nom);
+                                        break;
+                                }
+                                break;
+                            }
+                    }
             }
         }while(opcion!=0);
     }
@@ -63,12 +148,13 @@ public class ListaAnimales {
     public static void ordenarTipo(){
         Collections.sort(animales,new CompararAnimal());
     }
-    public static void buscarAnimal(String codigo){
+    public static Animal buscarAnimal(String codigo){
         for (Animal ani : animales){
             if(ani.getCodigo().equals(codigo)){
-                System.out.println(ani);
+                return ani;
             }
         }
+        return null;
     }
     public static void insertarAnimal(){
         Animal a = new Perro();

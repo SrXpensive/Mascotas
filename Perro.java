@@ -23,7 +23,11 @@ public class Perro extends Animal implements Mascota{
     }
     public String toString(){
         String desp = isDesparasitado() ? "Si" : "No";
-        return super.toString()+"\n Perro\n Raza: "+getRaza()+" \n Desparasitado: "+desp+"\n Num. vacunas: "+getNum_vacunas();
+        String n = "";
+        if(!getNombre().isEmpty()){
+            n+="\n Nombre: "+getNombre();
+        }
+        return super.toString()+"\n Perro\n Raza: "+getRaza()+" \n Desparasitado: "+desp+"\n Num. vacunas: "+getNum_vacunas()+" "+n;
     }
 
     public String getRaza() {

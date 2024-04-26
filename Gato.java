@@ -29,7 +29,11 @@ public class Gato extends Animal implements Mascota{
     }
     public String toString(){
         String pelo = isPelo_largo() ? "Si" : "No";
-        return super.toString()+"\n Gato\n Raza :" +getRaza()+" \n Pelo largo: "+pelo+"\n Edad: "+getEdad();
+        String n = "";
+        if(!getNombre().isEmpty()){
+            n += "\n Nombre: "+getNombre();
+        }
+        return super.toString()+"\n Gato\n Raza :" +getRaza()+" \n Pelo largo: "+pelo+"\n Edad: "+getEdad()+" "+n;
     }
 
     public boolean isPelo_largo() {

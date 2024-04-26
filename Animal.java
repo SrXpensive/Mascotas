@@ -26,7 +26,8 @@ public abstract class Animal implements Comparable<Animal>{
     public abstract void aniversario();
     public abstract void habla();
     public String toString(){
-        return "Codigo: "+codigo+", Patas: "+patas+", Edad: "+edad+", Fecha de nacimiento: "+fecha_nacimiento;
+        String fecha = String.format("%td-%<tb-%<tY",getFecha_nacimiento());
+        return "Codigo: "+codigo+", Patas: "+patas+", Edad: "+edad+", Fecha de nacimiento: "+fecha;
     }
     public String getCodigo() {
         return codigo;
