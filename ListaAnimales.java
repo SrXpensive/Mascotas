@@ -157,7 +157,7 @@ public class ListaAnimales {
         return null;
     }
     public static void insertarAnimal(){
-        Animal a = new Perro();
+        Animal a ;
         int tipo;
         String raza;
         String cod = Leer.leerTexto("Introduce el código del animal: ");
@@ -181,6 +181,7 @@ public class ListaAnimales {
                 int vac = Leer.leerEntero("¿Cuantas vacunas tiene el perro?: ");
                 try {
                     a = new Perro(cod, patas, edad, fecha, raza, d, vac);
+                    animales.add(a);
                 }catch(EdadErronea e){
                     System.out.println(e.getMessage());
                 }
@@ -192,6 +193,7 @@ public class ListaAnimales {
                 p = pelo.equals("s");
                 try{
                     a = new Gato(cod,patas,edad,fecha,raza,p);
+                    animales.add(a);
                 }catch(EdadErronea e){
                     System.out.println(e.getMessage());
                 }
@@ -201,6 +203,7 @@ public class ListaAnimales {
                 boolean pon = ponedora.equals("s");
                 try{
                     a = new Gallina(cod,patas,edad,fecha,true,false,pon);
+                    animales.add(a);
                 }catch(EdadErronea e){
                     System.out.println(e.getMessage());
                 }
@@ -211,11 +214,11 @@ public class ListaAnimales {
                 boolean h = habla.equals("s");
                 try{
                     a = new Loro(cod,patas,edad,fecha,true,true,t,h);
+                    animales.add(a);
                 }catch(EdadErronea e){
                     System.out.println(e.getMessage());
                 }
                 break;
         }
-        animales.add(a);
     }
 }
